@@ -68,7 +68,13 @@ const BlockItem: FC = ({ props }) => {
         </div>
       </div>
       {modalOpen && (
-        <ModalPizza props={props} onClick={() => setModalOpen(!modalOpen)} />
+        <ModalPizza
+          props={props}
+          typeNamesBoard={typeNamesBoard}
+          activeBoard={activeBoard}
+          activeSize={activeSize}
+          onClick={() => setModalOpen(!modalOpen)}
+        />
       )}
     </div>
   );

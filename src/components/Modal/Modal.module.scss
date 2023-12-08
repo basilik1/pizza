@@ -68,7 +68,7 @@
   align-items: center;
 }
 .info {
-  padding: 20px 30px;
+  padding: 30px;
 }
 .title {
   display: flex;
@@ -86,10 +86,13 @@
     border: none;
   }
 }
+
 .description {
   margin-bottom: 10px;
   span {
     letter-spacing: 0.25px;
+    color: rgb(67 71 76);
+    font-size: 18px;
   }
 }
 .composition {
@@ -97,4 +100,40 @@
   span {
     font-weight: 400;
   }
+}
+
+.popupBlock {
+  position: relative;
+}
+.popup {
+  position:absolute;
+  right: -5px;
+  top: -3px;
+  background-color: rgb(55, 53, 53);
+  color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  h3 {
+    color: #fff;
+    margin-bottom: 10px;
+    opacity: 0.8;
+  }
+  
+
+}
+.list {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+.triangle {
+  position:absolute;
+    right: 3px;
+    top: -19px;
+    border-radius: 5px;
+    svg {
+      width: 30px;
+      height:  30px;
+      color: rgb(55, 53, 53);
+    }
 }
