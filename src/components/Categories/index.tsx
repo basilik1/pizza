@@ -1,7 +1,6 @@
 import { FC /* useState */ } from 'react';
 
 const Categories: FC = ({ value, onClickCategory }) => {
-  // const [activeCategory, setActiveCategory] = useState(0);
   const categories = [
     { name: 'Все', id: 0 },
     { name: 'Мясные', id: 1 },

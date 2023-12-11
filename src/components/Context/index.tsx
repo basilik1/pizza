@@ -1,5 +1,3 @@
 import { createContext } from 'react';
 
-export const AppContext = createContext({
-  test: 'qwer',
-});
+export const AppContext = createContext({});

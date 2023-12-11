@@ -1,21 +1,27 @@
 import { FC, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { setSortType } from '../../redux/slices/filterSlice';
 
-const Sorting: FC = ({ value, onChangeSort }) => {
+export const listTypeSort = [
+  { name: 'популярности (DESC)', sortProperty: 'rating' },
+  { name: 'популярности (ASC)', sortProperty: '-rating' },
+  { name: 'цене (DESC)', sortProperty: 'price' },
+  { name: 'цене (ASC)', sortProperty: '-price' },
+  { name: 'алфавиту (DESC)', sortProperty: 'title' },
+  { name: 'алфавиту (ASC)', sortProperty: '-title' },
+];
+
+const Sorting: FC = () => {
   const [isOpenPopup, setIsOpenPopup] = useState(false);
 
-  const listTypeSort = [
-    { name: 'популярности (DESC)', sortProperty: 'rating' },
-    { name: 'популярности (ASC)', sortProperty: '-rating' },
-    { name: 'цене (DESC)', sortProperty: 'price' },
-    { name: 'цене (ASC)', sortProperty: '-price' },
-    { name: 'алфавиту (DESC)', sortProperty: 'title' },
-    { name: 'алфавиту (ASC)', sortProperty: '-title' },
-  ];
+  const dispatch = useDispatch();
+  const sortType = useSelector((state) => state.filterSlice.sortType);
 
-  const onHandleClickActiveItem = (i) => {
-    onChangeSort(i);
+  const onHandleClickActiveItem = (obj) => {
+    dispatch(setSortType(obj));
     setIsOpenPopup(!isOpenPopup);
   };
+
   return (
     <div className="sort">
       <div className="sort__label" onClick={() => setIsOpenPopup(!isOpenPopup)}>
@@ -33,7 +39,7 @@ const Sorting: FC = ({ value, onChangeSort }) => {
           />
         </svg>
         <b>Сортировка по:</b>
-        <span>{value.name}</span>
+        <span>{sortType.name}</span>
       </div>
       {isOpenPopup && (
         <div className="sort__popup">
@@ -42,7 +48,7 @@ const Sorting: FC = ({ value, onChangeSort }) => {
               <li
                 onClick={() => onHandleClickActiveItem(obj)}
                 className={
-                  value.sortProperty === obj.sortProperty ? 'active' : ''
+                  sortType.sortProperty === obj.sortProperty ? 'active' : ''
                 }
                 key={i}
               >

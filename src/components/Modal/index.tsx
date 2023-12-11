@@ -4,9 +4,14 @@ import { CiCircleInfo } from 'react-icons/ci';
 import { IoMdClose } from 'react-icons/io';
 import PopupNatural from './PopupNatural';
 
-// ToDo change PopupNatural, ModalPizza
-const ModalPizza: FC = ({ props, onClick }) => {
-  const { composition, nutritional, imageUrl, title } = props;
+const ModalPizza: FC = ({
+  props,
+  onClick,
+  activeBoard,
+  activeSize,
+  typeNamesBoard,
+}) => {
+  const { composition, nutritional, imageUrl, title, weight, sizes } = props;
   const [open, setOpen] = useState(false);
 
   return (
@@ -21,7 +26,7 @@ const ModalPizza: FC = ({ props, onClick }) => {
             <div className={styles.modal}>
               <div className={styles.block} onClick={() => setOpen(false)}>
                 <div className={styles.image}>
-                  <img src={imageUrl[0]} alt={title} />
+                  <img src={imageUrl[activeBoard]} alt={title} />
                 </div>
                 <div className={styles.info}>
                   <div className={styles.title}>
@@ -40,7 +45,11 @@ const ModalPizza: FC = ({ props, onClick }) => {
                   </div>
                   {open && <PopupNatural props={nutritional} />}
                   <div className={styles.description}>
-                    <span>50см Традиционое тесто, 500гр</span>
+                    <span>
+                      {sizes[activeSize]}см, {typeNamesBoard[activeBoard]}{' '}
+                      тесто,&nbsp;
+                      {weight[activeSize]} г
+                    </span>
                   </div>
                   <div className={styles.composition}>
                     <span>{composition}</span>
