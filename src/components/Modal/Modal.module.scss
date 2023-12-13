@@ -1,0 +1,139 @@
+@import '../../scss/variables';
+@import '../../scss/libs/normalize';
+
+.wrapper {
+  position: fixed;
+  inset: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 100;
+  overflow: auto;
+}
+.modalBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  inset: 0px;
+  background: rgba(41, 41, 41, 0.6);
+}
+.modalPadding {
+  padding: 45px;
+  display: flex;
+  flex-flow: column;
+  min-height: 100%;
+  align-items: center;
+  &::before {
+    content: ' ';
+    display: block;
+    width: 100%;
+    flex: 1 1 auto;
+  }
+  &::after {
+    content: ' ';
+    display: block;
+    width: 100%;
+    flex: 1 1 auto;
+  }
+}
+
+.modalInner {
+  position: relative;
+}
+.iconClose {
+  cursor: pointer;
+  position: absolute;
+  right: -40px;
+  &:hover {
+    transform: scale(1.2);
+    transition: transform 0.25s ease-in-out 0s;
+  }
+}
+.modal {
+  width: 450px;
+  position: relative;
+
+  background-color: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+
+  img {
+    width: 350px;
+    height: 350px;
+  }
+}
+.block {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+.info {
+  padding: 30px;
+}
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  &:hover {
+    svg {
+      transform: scale(1.1);
+      transition: transform 0.25s ease-in-out 0s;
+    }
+  }
+  button {
+    background-color: initial;
+    border: none;
+  }
+}
+
+.description {
+  margin-bottom: 10px;
+  span {
+    letter-spacing: 0.25px;
+    color: rgb(67 71 76);
+    font-size: 18px;
+  }
+}
+.composition {
+  margin-bottom: 15px;
+  span {
+    font-weight: 400;
+  }
+}
+
+.popupBlock {
+  position: relative;
+}
+.popup {
+  position:absolute;
+  right: -5px;
+  top: -3px;
+  background-color: rgb(55, 53, 53);
+  color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  h3 {
+    color: #fff;
+    margin-bottom: 10px;
+    opacity: 0.8;
+  }
+  
+
+}
+.list {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+.triangle {
+  position:absolute;
+    right: 3px;
+    top: -19px;
+    border-radius: 5px;
+    svg {
+      width: 30px;
+      height:  30px;
+      color: rgb(55, 53, 53);
+    }
+}
