@@ -1,15 +1,33 @@
 import { FC, useState } from 'react';
-import ModalPizza from '../Modal/';
+import { useDispatch } from 'react-redux';
+import ModalPizza from '../Modal';
+import { addItem } from '../../redux/slices/cartSlice';
 
-const BlockItem: FC = ({ props }) => {
-  const { imageUrl, title, price, sizes, types } = props;
-  const typeNamesBoard = ['Тонкое', 'Традиционное'];
+const typeNamesBoard = ['Тонкое', 'Традиционное'];
+
+const BlockPizza: FC = ({ props }) => {
+  const { id, imageUrl, title, price, sizes, types, weight } = props;
+
+  const dispatch = useDispatch();
 
   const [pizzaCount, setPizzaCount] = useState(0);
   const [activeSize, setActiveSize] = useState(0);
   const [activeBoard, setActiveBoard] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
 
+  const onClickAdd = () => {
+    setPizzaCount(pizzaCount + 1);
+    const item = {
+      id: Number(`${id}${price[activeSize]}`),
+      title,
+      price: price[activeSize],
+      imageUrl: imageUrl[activeBoard],
+      sizes: sizes[activeSize],
+      typeNamesBoard: typeNamesBoard[activeBoard],
+      weight: weight[activeSize],
+    };
+    dispatch(addItem(item));
+  };
   return (
     <div className="pizza-block-wrapper">
       <div className="pizza-block">
@@ -48,7 +66,7 @@ const BlockItem: FC = ({ props }) => {
           <div className="pizza-block__price">от {price[activeSize]} ₽</div>
           <button
             className="button button--outline button--add"
-            onClick={() => setPizzaCount(pizzaCount + 1)}
+            onClick={onClickAdd}
           >
             <svg
               width="12"
@@ -63,7 +81,7 @@ const BlockItem: FC = ({ props }) => {
               />
             </svg>
             <span>Добавить</span>
-            <i>{pizzaCount}</i>
+            {pizzaCount > 0 && <i>{pizzaCount}</i>}
           </button>
         </div>
       </div>
@@ -80,4 +98,4 @@ const BlockItem: FC = ({ props }) => {
   );
 };
 
-export default BlockItem;
+export default BlockPizza;

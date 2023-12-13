@@ -5,8 +5,8 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 import Sorting, { listTypeSort } from '../components/Sorting';
-import BlockItem from '../components/BlockItem';
-import Skeleton from '../components/BlockItem/Skeleton';
+import BlockPizza from '../components/BlockPizza';
+import Skeleton from '../components/BlockPizza/Skeleton';
 import Categories from '../components/Categories';
 import Search from '../components/Search/';
 import Pagination from '../components/Pagination/';
@@ -114,7 +114,7 @@ const Home: FC = () => {
         <div className="content__items">
           {isLoading
             ? [...Array(8)].map((_, index) => <Skeleton key={index} />)
-            : data.map((obj) => <BlockItem props={obj} key={obj.id} />)}{' '}
+            : data.map((obj) => <BlockPizza props={obj} key={obj.id} />)}{' '}
           {data.length < 1 && searchValue.length >= 1 && (
             <h2 style={{ marginTop: '15px' }}>Пицц не найдено</h2>
           )}

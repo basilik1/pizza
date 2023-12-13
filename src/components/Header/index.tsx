@@ -1,9 +1,14 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { FaPizzaSlice as LogoPizza } from 'react-icons/fa';
 import basket from '../../assets/cart_basket.svg';
 
 const Header: FC = () => {
+  const { items, totalPrice } = useSelector((state) => state.cartSlice);
+  const countAllPizza = items.reduce((acc, obj) => {
+    return acc + obj.count;
+  }, 0);
   return (
     <div className="header">
       <div className="container">
@@ -18,11 +23,11 @@ const Header: FC = () => {
         </Link>
         <div className="header__cart">
           <Link to="/cart" className="button button--cart">
-            <span>0 ₽</span>
+            <span>{totalPrice} ₽</span>
             <div className="button__delimiter"></div>
             <img src={basket} alt="icon basket" />
 
-            <span></span>
+            <span>{countAllPizza}</span>
           </Link>
         </div>
       </div>

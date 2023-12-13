@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useRef, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setSortType } from '../../redux/slices/filterSlice';
 
@@ -14,6 +14,7 @@ export const listTypeSort = [
 const Sorting: FC = () => {
   const [isOpenPopup, setIsOpenPopup] = useState(false);
 
+  const sortRef = useRef(null);
   const dispatch = useDispatch();
   const sortType = useSelector((state) => state.filterSlice.sortType);
 
@@ -21,9 +22,21 @@ const Sorting: FC = () => {
     dispatch(setSortType(obj));
     setIsOpenPopup(!isOpenPopup);
   };
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (!event.composedPath().includes(sortRef.current)) {
+        setIsOpenPopup(false);
+      }
+    };
+    document.body.addEventListener('click', handleClickOutside);
+    return () => {
+      // on unmounting
+      document.body.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
 
   return (
-    <div className="sort">
+    <div className="sort" ref={sortRef}>
       <div className="sort__label" onClick={() => setIsOpenPopup(!isOpenPopup)}>
         <svg
           className={isOpenPopup ? 'active' : ''}

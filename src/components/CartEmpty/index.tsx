@@ -1,12 +1,16 @@
 import { FC } from 'react';
+import { LuShoppingCart } from 'react-icons/lu';
+import styles from './CartEmpty.module.scss';
 import { Link } from 'react-router-dom';
-import styles from './NotFoundBlock.module.scss';
-const NotFoundBlock: FC = () => {
+const CartEmpty: FC = () => {
   return (
-    <div className={styles.root}>
-      <h1>Ничего не найдено</h1>
-      <p>Страница отсутсвует</p>
-      <Link to="/cart" className={styles.buttonBack}>
+    <>
+      <div className={styles.cartEmpty}>
+        <h2>Корзина пуста</h2>
+        <p>Для заказа, перейдите на главную страницу.</p>
+        <LuShoppingCart size={150} />
+      </div>
+      <Link to="/" className={styles.buttonBack}>
         <svg
           width="8"
           height="14"
@@ -24,8 +28,8 @@ const NotFoundBlock: FC = () => {
         </svg>
         <span>Вернуться назад</span>
       </Link>
-    </div>
+    </>
   );
 };
 
-export default NotFoundBlock;
+export default CartEmpty;
