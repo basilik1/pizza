@@ -1,8 +1,9 @@
-import { FC, useState, useEffect, useRef } from 'react';
+import { FC, useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import qs from 'qs';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+
+import { PiSmileyXEyes } from 'react-icons/pi';
 
 import Sorting, { listTypeSort } from '../components/Sorting';
 import BlockPizza from '../components/BlockPizza';
@@ -16,22 +17,19 @@ import {
   setCurrentPage,
   setFilters,
 } from '../redux/slices/filterSlice';
+import { fetchPizzas } from '../redux/slices/pizzaSlice';
 
 const Home: FC = () => {
-  const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isSearch = useRef(false);
   const isMounted = useRef(false);
 
-  const searchValue = useSelector((state) => state.searchSlice.searchValue);
-  const activeCategoryId = useSelector(
-    (state) => state.filterSlice.activeCategoryId
+  const { status, data } = useSelector((state) => state.pizzaSlice);
+  const { searchValue } = useSelector((state) => state.searchSlice);
+  const { activeCategoryId, sortType, currentPage } = useSelector(
+    (state) => state.filterSlice
   );
-  const sortType = useSelector((state) => state.filterSlice.sortType);
-  const currentPage = useSelector((state) => state.filterSlice.currentPage);
 
   const onChangeActiveCategoryId = (id) => {
     dispatch(setActiveCategoryId(id));
@@ -40,24 +38,22 @@ const Home: FC = () => {
     dispatch(setCurrentPage(num));
   };
 
-  const fetchPizzas = () => {
-    setIsLoading(true);
-
+  const getPizzas = async () => {
     const order = sortType.sortProperty.includes('-') ? 'asc' : 'desc';
     const sortBy = sortType.sortProperty.replace('-', '');
     const category = activeCategoryId > 0 ? `category=${activeCategoryId}` : '';
     const search = searchValue ? `&sortBy=title&search=${searchValue}` : '';
 
-    axios
-      .get(
-        `https://656227ecdcd355c083249d4f.mockapi.io/api/v1/pizza_collections?page=${currentPage}&limit=8&${category}&sortBy=${sortBy}&order=${order}${search}`
-      )
-      .then((res) => res.data)
-      .then((data) => {
-        setData(data);
-        setIsLoading(false);
+    dispatch(
+      fetchPizzas({
+        order,
+        sortBy,
+        category,
+        search,
+        currentPage,
       })
-      .catch((err) => console.log(err));
+    );
+    window.scrollTo(0, 0);
   };
 
   useEffect(() => {
@@ -90,9 +86,8 @@ const Home: FC = () => {
   }, []);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
     if (!isSearch.current) {
-      fetchPizzas();
+      getPizzas();
     }
     isSearch.current = false;
   }, [activeCategoryId, sortType, searchValue, currentPage]);
@@ -111,15 +106,41 @@ const Home: FC = () => {
           <h2 className="content__title">Все пиццы</h2>
           <Search />
         </div>
-        <div className="content__items">
-          {isLoading
-            ? [...Array(8)].map((_, index) => <Skeleton key={index} />)
-            : data.map((obj) => <BlockPizza props={obj} key={obj.id} />)}{' '}
-          {data.length < 1 && searchValue.length >= 1 && (
-            <h2 style={{ marginTop: '15px' }}>Пицц не найдено</h2>
-          )}
-        </div>
-        <Pagination currentPage={currentPage} onChangePage={onChangePage} />
+        {status === 'error' ? (
+          <div
+            style={{
+              textAlign: 'center',
+              margin: '100px 0',
+            }}
+          >
+            <h2>
+              Произошла ошибка <PiSmileyXEyes />
+            </h2>
+            <p
+              style={{
+                fontSize: '20px',
+                marginTop: '20px',
+              }}
+            >
+              Не удалось получить даннные
+            </p>
+          </div>
+        ) : (
+          <div className="content__items">
+            {status === 'loading'
+              ? [...Array(8)].map((_, index) => <Skeleton key={index} />)
+              : data.map((obj) => <BlockPizza props={obj} key={obj.id} />)}
+
+            {data.length < 1 && searchValue.length >= 1 && (
+              <h2 style={{ marginTop: '15px' }}>Пицц не найдено</h2>
+            )}
+          </div>
+        )}
+        {status === 'error' ? (
+          <></>
+        ) : (
+          <Pagination currentPage={currentPage} onChangePage={onChangePage} />
+        )}
       </div>
     </>
   );

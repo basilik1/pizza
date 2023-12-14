@@ -4,6 +4,7 @@ const initialState = {
   items: [],
   totalPrice: 0,
 };
+
 const changeTotalPrice = (state) => {
   state.totalPrice = state.items.reduce((sum, obj) => {
     return obj.price * obj.count + sum;
@@ -44,6 +45,7 @@ const cartSlice = createSlice({
       if (findItem) {
         findItem.count--;
       }
+
       changeTotalPrice(state);
     },
   },
