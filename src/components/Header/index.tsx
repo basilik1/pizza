@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { FaPizzaSlice as LogoPizza } from 'react-icons/fa';
 import basket from '../../assets/cart_basket.svg';
+import { selectCart } from '../../redux/slices/cartSlice';
 
 const Header: FC = () => {
-  const { items, totalPrice } = useSelector((state) => state.cartSlice);
+  const { items, totalPrice } = useSelector(selectCart);
   const countAllPizza = items.reduce((acc, obj) => {
     return acc + obj.count;
   }, 0);

@@ -11,8 +11,6 @@ const Search: FC = () => {
   const [value, setValue] = useState('');
   const dispatch = useDispatch();
 
-  // const searchValue = useSelector((state) => state.searchSlice.searchValue);
-
   const inputRef = useRef(null);
 
   const onClickClear = () => {

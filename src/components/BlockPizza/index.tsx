@@ -1,7 +1,8 @@
 import { FC, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import ModalPizza from '../Modal';
-import { addItem } from '../../redux/slices/cartSlice';
+import { addItem, selectPizzaCount } from '../../redux/slices/cartSlice';
 
 const typeNamesBoard = ['Тонкое', 'Традиционное'];
 
@@ -10,15 +11,18 @@ const BlockPizza: FC = ({ props }) => {
 
   const dispatch = useDispatch();
 
-  const [pizzaCount, setPizzaCount] = useState(0);
   const [activeSize, setActiveSize] = useState(0);
   const [activeBoard, setActiveBoard] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
 
+  const idCart = Number(`${id}${price[activeSize]}`);
+  const pizzaCount = useSelector(selectPizzaCount(idCart));
+
+  const addedPizzaCount = pizzaCount ? pizzaCount.count : 0;
+
   const onClickAdd = () => {
-    setPizzaCount(pizzaCount + 1);
     const item = {
-      id: Number(`${id}${price[activeSize]}`),
+      id: idCart,
       title,
       price: price[activeSize],
       imageUrl: imageUrl[activeBoard],
@@ -81,7 +85,7 @@ const BlockPizza: FC = ({ props }) => {
               />
             </svg>
             <span>Добавить</span>
-            {pizzaCount > 0 && <i>{pizzaCount}</i>}
+            {addedPizzaCount > 0 && <i>{addedPizzaCount}</i>}
           </button>
         </div>
       </div>

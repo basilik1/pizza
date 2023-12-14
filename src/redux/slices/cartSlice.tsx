@@ -20,10 +20,7 @@ const cartSlice = createSlice({
       if (findItem) {
         findItem.count++;
       } else {
-        state.items.push({
-          ...action.payload,
-          count: 1,
-        });
+        state.items.push({ ...action.payload, count: 1 });
       }
       changeTotalPrice(state);
     },
@@ -50,6 +47,10 @@ const cartSlice = createSlice({
     },
   },
 });
+
+export const selectCart = (state) => state.cartSlice;
+export const selectPizzaCount = (state) =>
+  state.cartSlice.items.find((obj) => obj.id === idCart);
 
 export const { addItem, removeItem, clearItems, backPizzaToCart } =
   cartSlice.actions;

@@ -16,8 +16,10 @@ import {
   setActiveCategoryId,
   setCurrentPage,
   setFilters,
+  selectFilter,
 } from '../redux/slices/filterSlice';
-import { fetchPizzas } from '../redux/slices/pizzaSlice';
+import { fetchPizzas, selectPizza } from '../redux/slices/pizzaSlice';
+import { selectSearchValue } from '../redux/slices/searchSlice';
 
 const Home: FC = () => {
   const dispatch = useDispatch();
@@ -25,11 +27,9 @@ const Home: FC = () => {
   const isSearch = useRef(false);
   const isMounted = useRef(false);
 
-  const { status, data } = useSelector((state) => state.pizzaSlice);
-  const { searchValue } = useSelector((state) => state.searchSlice);
-  const { activeCategoryId, sortType, currentPage } = useSelector(
-    (state) => state.filterSlice
-  );
+  const { status, data } = useSelector(selectPizza);
+  const { searchValue } = useSelector(selectSearchValue);
+  const { activeCategoryId, sortType, currentPage } = useSelector(selectFilter);
 
   const onChangeActiveCategoryId = (id) => {
     dispatch(setActiveCategoryId(id));

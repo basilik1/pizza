@@ -159,7 +159,37 @@
     transform: translateY(2px);
   }
 }
+.buttonCountOne {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  padding: 0;
 
+  text-align: center;
+  cursor: pointer;
+  transition:
+    background-color $duration ease-in-out,
+    border-color $duration ease-in-out;
+  border: 1px solid transparent;
+  @include noselect();
+  background-color: darken($color: $gray-line, $amount: 5);
+  border-color: $orange;
+  border-radius: 30px;
+  border-width: 2px;
+
+  span {
+    color: $orange;
+  }
+
+  svg {
+    path {
+      fill: $orange;
+    }
+  }
+}
 .remove {
   display: flex;
   align-items: center;
@@ -290,7 +320,9 @@
   min-width: 100px;
   text-align: center;
   cursor: pointer;
-  transition: background-color $duration ease-in-out, border-color $duration ease-in-out;
+  transition:
+    background-color $duration ease-in-out,
+    border-color $duration ease-in-out;
   border: 1px solid transparent;
   @include noselect();
 

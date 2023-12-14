@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { RiShoppingBasket2Line } from 'react-icons/ri';
 
-import { clearItems } from '../../redux/slices/cartSlice';
+import { clearItems, selectCart } from '../../redux/slices/cartSlice';
 
 import CartItem from './CartItem';
 import CartEmpty from '../CartEmpty';
 import styles from './CartBlock.module.scss';
 
 const CartBlock: FC = () => {
-  const { items, totalPrice } = useSelector((state) => state.cartSlice);
+  const { items, totalPrice } = useSelector(selectCart);
 
   const countAllPizza = items.reduce((acc, obj) => {
     return acc + obj.count;
