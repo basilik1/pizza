@@ -1,0 +1,41 @@
+@import '../../scss/variables';
+.root {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  li {
+    display: inline-block;
+
+    a {
+      cursor: pointer;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      border-radius: 30px;
+      border: 1px solid $orange;
+      margin-right: 15px;
+      transition: background-color 0.15s ease-in-out;
+      color: $orange;
+      &:hover {
+        background-color: $orange;
+
+        color: #fff;
+      }
+      &:active {
+        transform: translateY(2px);
+        background-color: darken($orange, 8%);
+      }
+    }
+  }
+  :global {
+    .selected {
+      a {
+        color: #fff;
+        background-color: darken($orange, 8%);
+      }
+    }
+  }
+}
