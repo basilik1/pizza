@@ -15,7 +15,7 @@ const BlockPizza: FC = ({ props }) => {
   const [activeBoard, setActiveBoard] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
 
-  const idCart = Number(`${id}${price[activeSize]}`);
+  const idCart = Number(`${id}${price[activeSize]}${activeBoard}`);
   const pizzaCount = useSelector(selectPizzaCount(idCart));
 
   const addedPizzaCount = pizzaCount ? pizzaCount.count : 0;

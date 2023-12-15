@@ -18,7 +18,7 @@ import {
   setFilters,
   selectFilter,
 } from '../redux/slices/filterSlice';
-import { fetchPizzas, selectPizza } from '../redux/slices/pizzaSlice';
+import { fetchPizzas, selectPizzaData } from '../redux/slices/pizzaSlice';
 import { selectSearchValue } from '../redux/slices/searchSlice';
 
 const Home: FC = () => {
@@ -27,7 +27,7 @@ const Home: FC = () => {
   const isSearch = useRef(false);
   const isMounted = useRef(false);
 
-  const { status, data } = useSelector(selectPizza);
+  const { status, data } = useSelector(selectPizzaData);
   const { searchValue } = useSelector(selectSearchValue);
   const { activeCategoryId, sortType, currentPage } = useSelector(selectFilter);
 
@@ -136,7 +136,7 @@ const Home: FC = () => {
             )}
           </div>
         )}
-        {status === 'error' ? (
+        {status === 'error' || (data.length < 1 && searchValue.length >= 1) ? (
           <></>
         ) : (
           <Pagination currentPage={currentPage} onChangePage={onChangePage} />

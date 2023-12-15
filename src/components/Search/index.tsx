@@ -1,6 +1,10 @@
-import { FC, useCallback, useRef, useState } from 'react';
-import { /* useSelector, */ useDispatch } from 'react-redux';
-import { setSearchValue } from '../../redux/slices/searchSlice';
+import { FC, useCallback, useRef } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  setSearchValue,
+  setInterimValue,
+  selectSearchValue,
+} from '../../redux/slices/searchSlice';
 
 import debounce from 'lodash.debounce';
 
@@ -8,14 +12,15 @@ import { IoMdClose } from 'react-icons/io';
 import styles from './Search.module.scss';
 
 const Search: FC = () => {
-  const [value, setValue] = useState('');
+  const { interimValue } = useSelector(selectSearchValue);
   const dispatch = useDispatch();
 
-  const inputRef = useRef(null);
+  const inputRef = useRef();
 
   const onClickClear = () => {
     dispatch(setSearchValue(''));
-    setValue('');
+    dispatch(setInterimValue(''));
+
     inputRef.current.focus();
   };
 
@@ -26,7 +31,7 @@ const Search: FC = () => {
     []
   );
   const onChangeSearchValue = (event) => {
-    setValue(event.target.value);
+    dispatch(setInterimValue(event.target.value));
     updateSearchValue(event.target.value);
   };
   return (
@@ -38,9 +43,9 @@ const Search: FC = () => {
           onChange={onChangeSearchValue}
           className={styles.input}
           placeholder="Поиск по ингредиентам..."
-          value={value}
+          value={interimValue}
         />
-        {value !== '' && (
+        {interimValue !== '' && (
           <IoMdClose onClick={onClickClear} className={styles.clearIcon} />
         )}
       </div>
