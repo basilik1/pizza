@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './NotFoundBlock.module.scss';
+
 const NotFoundBlock: FC = () => {
   return (
     <div className={styles.root}>

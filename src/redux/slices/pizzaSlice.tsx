@@ -11,6 +11,7 @@ export const fetchPizzas = createAsyncThunk(
     return res.data;
   }
 );
+
 const initialState = {
   data: [],
   status: 'loading',

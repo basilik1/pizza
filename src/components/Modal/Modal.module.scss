@@ -105,9 +105,10 @@
 
 .popupBlock {
   position: relative;
+  transition: all 0.25s ease-in-out;
 }
 .popup {
-  position:absolute;
+  position: absolute;
   right: -5px;
   top: -3px;
   background-color: rgb(55, 53, 53);
@@ -119,8 +120,6 @@
     margin-bottom: 10px;
     opacity: 0.8;
   }
-  
-
 }
 .list {
   display: flex;
@@ -128,13 +127,13 @@
   margin-bottom: 5px;
 }
 .triangle {
-  position:absolute;
-    right: 3px;
-    top: -19px;
-    border-radius: 5px;
-    svg {
-      width: 30px;
-      height:  30px;
-      color: rgb(55, 53, 53);
-    }
+  position: absolute;
+  right: 3px;
+  top: -19px;
+  border-radius: 5px;
+  svg {
+    width: 30px;
+    height: 30px;
+    color: rgb(55, 53, 53);
+  }
 }

@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { LuShoppingCart } from 'react-icons/lu';
 import styles from './CartEmpty.module.scss';
 import { Link } from 'react-router-dom';
+
 const CartEmpty: FC = () => {
   return (
     <>

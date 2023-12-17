@@ -5,7 +5,8 @@ import { useNavigate } from 'react-router-dom';
 
 import { PiSmileyXEyes } from 'react-icons/pi';
 
-import Sorting, { listTypeSort } from '../components/Sorting';
+import Sorting from '../components/Sorting';
+import { listTypeSort } from '../components/Sorting/ListTypeSort';
 import BlockPizza from '../components/BlockPizza';
 import Skeleton from '../components/BlockPizza/Skeleton';
 import Categories from '../components/Categories';
@@ -31,10 +32,10 @@ const Home: FC = () => {
   const { searchValue } = useSelector(selectSearchValue);
   const { activeCategoryId, sortType, currentPage } = useSelector(selectFilter);
 
-  const onChangeActiveCategoryId = (id) => {
+  const onChangeActiveCategoryId = (id: number) => {
     dispatch(setActiveCategoryId(id));
   };
-  const onChangePage = (num) => {
+  const onChangePage = (num: number) => {
     dispatch(setCurrentPage(num));
   };
 

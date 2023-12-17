@@ -1,18 +1,12 @@
-import { FC /* useState */ } from 'react';
+import { FC } from 'react';
+import { CategoriesList } from './CategoriesList';
+import { ICategoriesProps } from '../interface/interface';
 
-const Categories: FC = ({ value, onClickCategory }) => {
-  const categories = [
-    { name: 'Все', id: 0 },
-    { name: 'Мясные', id: 1 },
-    { name: 'Вегетарианская', id: 2 },
-    { name: 'Гриль', id: 3 },
-    { name: 'Острые', id: 4 },
-  ];
-
+const Categories: FC<ICategoriesProps> = ({ value, onClickCategory }) => {
   return (
     <div className="categories">
       <ul>
-        {categories.map((item, i) => (
+        {CategoriesList.map((item, i) => (
           <li
             onClick={() => onClickCategory(item.id)}
             className={value === item.id ? 'active' : ''}

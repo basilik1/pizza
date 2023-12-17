@@ -6,23 +6,25 @@ import {
   addItem,
 } from '../../redux/slices/cartSlice';
 import { useDispatch } from 'react-redux';
+import { ICartItem } from '../interface/interface';
 
-const CartItem: FC = ({ item }) => {
+const CartItem: FC<ICartItem> = ({ item }) => {
+  const { imageUrl, price, sizes, weight, typeNamesBoard, title, count } = item;
   const dispatch = useDispatch();
 
   return (
     <div className={styles.item}>
       <div className={styles.itemImg}>
-        <img src={item.imageUrl} alt="Pizza"></img>
+        <img src={imageUrl} alt="Pizza"></img>
       </div>
       <div className={styles.info}>
-        <h3>{item.title}</h3>
+        <h3>{title}</h3>
         <p>
-          {item.typeNamesBoard} тесто, {item.sizes} см. {item.weight} гр.
+          {typeNamesBoard} тесто, {sizes} см. {weight} гр.
         </p>
       </div>
       <div className={styles.count}>
-        {item.count === 1 ? (
+        {count === 1 ? (
           <button className={styles.buttonCountOne}>
             <svg
               width="10"
@@ -59,7 +61,7 @@ const CartItem: FC = ({ item }) => {
           </button>
         )}
 
-        <b>{item.count}</b>
+        <b>{count}</b>
         <button
           className={styles.buttonCount}
           onClick={() => {
@@ -85,7 +87,7 @@ const CartItem: FC = ({ item }) => {
         </button>
       </div>
       <div className={styles.price}>
-        <b>{item.price * item.count} ₽</b>
+        <b>{price * count} ₽</b>
       </div>
       <div className={styles.remove}>
         <button

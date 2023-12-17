@@ -7,7 +7,7 @@ import { selectCart } from '../../redux/slices/cartSlice';
 
 const Header: FC = () => {
   const { items, totalPrice } = useSelector(selectCart);
-  const countAllPizza = items.reduce((acc, obj) => {
+  const countAllPizza = items.reduce((acc: number, obj: { count: number }) => {
     return acc + obj.count;
   }, 0);
   return (
@@ -27,7 +27,6 @@ const Header: FC = () => {
             <span>{totalPrice} ₽</span>
             <div className="button__delimiter"></div>
             <img src={basket} alt="icon basket" />
-
             <span>{countAllPizza}</span>
           </Link>
         </div>

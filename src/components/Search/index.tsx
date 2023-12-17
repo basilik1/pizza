@@ -15,13 +15,13 @@ const Search: FC = () => {
   const { interimValue } = useSelector(selectSearchValue);
   const dispatch = useDispatch();
 
-  const inputRef = useRef();
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const onClickClear = () => {
     dispatch(setSearchValue(''));
     dispatch(setInterimValue(''));
 
-    inputRef.current.focus();
+    inputRef.current?.focus();
   };
 
   const updateSearchValue = useCallback(
@@ -30,7 +30,7 @@ const Search: FC = () => {
     }, 400),
     []
   );
-  const onChangeSearchValue = (event) => {
+  const onChangeSearchValue = (event: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(setInterimValue(event.target.value));
     updateSearchValue(event.target.value);
   };

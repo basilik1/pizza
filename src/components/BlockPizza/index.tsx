@@ -3,17 +3,17 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import ModalPizza from '../Modal';
 import { addItem, selectPizzaCount } from '../../redux/slices/cartSlice';
+import { IBlockPizzaProps } from '../interface/interface';
 
-const typeNamesBoard = ['Тонкое', 'Традиционное'];
+const typeNamesBoard: string[] = ['Тонкое', 'Традиционное'];
 
-const BlockPizza: FC = ({ props }) => {
+const BlockPizza: FC<IBlockPizzaProps> = ({ props }) => {
   const { id, imageUrl, title, price, sizes, types, weight } = props;
 
   const dispatch = useDispatch();
-
-  const [activeSize, setActiveSize] = useState(0);
-  const [activeBoard, setActiveBoard] = useState(0);
-  const [modalOpen, setModalOpen] = useState(false);
+  const [activeSize, setActiveSize] = useState<number>(0);
+  const [activeBoard, setActiveBoard] = useState<number>(0);
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
 
   const idCart = Number(`${id}${price[activeSize]}${activeBoard}`);
   const pizzaCount = useSelector(selectPizzaCount(idCart));

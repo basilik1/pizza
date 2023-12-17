@@ -1,8 +1,9 @@
 import { FC } from 'react';
 import styles from './Modal.module.scss';
 import { GoTriangleUp } from 'react-icons/go';
+import { TNutritional } from '../interface/interface';
 
-const PopupNatural: FC = ({ props }) => {
+const PopupNatural: FC<TNutritional> = ({ nutritional }) => {
   return (
     <>
       <div className={styles.popupBlock}>
@@ -12,12 +13,11 @@ const PopupNatural: FC = ({ props }) => {
           </i>
           <h3>Пищевая ценность на 100 г</h3>
 
-          {props.map((obj, i) => (
+          {nutritional.map((obj, i) => (
             <div className={styles.list} key={i}>
-              <div>{Object.keys(obj)} </div>
+              <div>{obj.property}</div>
               <div>
-                {Object.values(obj)}{' '}
-                {Object.keys(obj).includes('Энерг. ценность') ? 'ккал' : 'г'}
+                {obj.value} {obj.property === 'Энерг. ценность' ? 'ккал' : 'г'}
               </div>
             </div>
           ))}

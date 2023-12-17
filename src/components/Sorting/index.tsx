@@ -1,30 +1,23 @@
 import { FC, useEffect, useRef, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setSortType, selectFilter } from '../../redux/slices/filterSlice';
-
-export const listTypeSort = [
-  { name: 'популярности (DESC)', sortProperty: 'rating' },
-  { name: 'популярности (ASC)', sortProperty: '-rating' },
-  { name: 'цене (DESC)', sortProperty: 'price' },
-  { name: 'цене (ASC)', sortProperty: '-price' },
-  { name: 'алфавиту (DESC)', sortProperty: 'title' },
-  { name: 'алфавиту (ASC)', sortProperty: '-title' },
-];
+import { listTypeSort } from './ListTypeSort';
+import { TListSort } from '../interface/interface';
 
 const Sorting: FC = () => {
-  const [isOpenPopup, setIsOpenPopup] = useState(false);
+  const [isOpenPopup, setIsOpenPopup] = useState<boolean>(false);
 
-  const sortRef = useRef(null);
+  const sortRef = useRef<HTMLDivElement>(null);
   const dispatch = useDispatch();
   const { sortType } = useSelector(selectFilter);
 
-  const onHandleClickActiveItem = (obj) => {
+  const onHandleClickActiveItem = (obj: TListSort) => {
     dispatch(setSortType(obj));
     setIsOpenPopup(!isOpenPopup);
   };
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (!event.composedPath().includes(sortRef.current)) {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (sortRef.current && !event.composedPath().includes(sortRef.current)) {
         setIsOpenPopup(false);
       }
     };

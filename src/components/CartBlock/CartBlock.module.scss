@@ -95,7 +95,8 @@
 
   p {
     font-size: 18px;
-    color: #8d8d8d;
+    color: darken($color: $gray-line, $amount: 55);
+    font-weight: 400;
   }
 }
 .count {

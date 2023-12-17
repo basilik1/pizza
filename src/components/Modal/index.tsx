@@ -3,16 +3,17 @@ import styles from './Modal.module.scss';
 import { CiCircleInfo } from 'react-icons/ci';
 import { IoMdClose } from 'react-icons/io';
 import PopupNatural from './PopupNatural';
+import { IModalPizzaProps } from '../interface/interface';
 
-const ModalPizza: FC = ({
+const ModalPizza: FC<IModalPizzaProps> = ({
   props,
-  onClick,
   activeBoard,
   activeSize,
   typeNamesBoard,
+  onClick,
 }) => {
   const { composition, nutritional, imageUrl, title, weight, sizes } = props;
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState<boolean>(false);
 
   return (
     <>
@@ -24,7 +25,7 @@ const ModalPizza: FC = ({
               <IoMdClose size="40" fill="#fff" />
             </i>
             <div className={styles.modal}>
-              <div className={styles.block} onClick={() => setOpen(false)}>
+              <div className={styles.block} onClick={() => setOpen(!open)}>
                 <div className={styles.image}>
                   <img src={imageUrl[activeBoard]} alt={title} />
                 </div>
@@ -35,7 +36,7 @@ const ModalPizza: FC = ({
                       className={styles.infoValue}
                       onClick={(e) => {
                         e.stopPropagation();
-                        setOpen(true);
+                        setOpen(!open);
                       }}
                     >
                       <i>
@@ -43,7 +44,7 @@ const ModalPizza: FC = ({
                       </i>
                     </button>
                   </div>
-                  {open && <PopupNatural props={nutritional} />}
+                  {open && <PopupNatural nutritional={nutritional} />}
                   <div className={styles.description}>
                     <span>
                       {sizes[activeSize]}см, {typeNamesBoard[activeBoard]}{' '}

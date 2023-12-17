@@ -12,7 +12,7 @@ import styles from './CartBlock.module.scss';
 const CartBlock: FC = () => {
   const { items, totalPrice } = useSelector(selectCart);
 
-  const countAllPizza = items.reduce((acc, obj) => {
+  const countAllPizza = items.reduce((acc: number, obj: { count: number }) => {
     return acc + obj.count;
   }, 0);
 
@@ -40,9 +40,9 @@ const CartBlock: FC = () => {
           </div>
 
           <div className={styles.items}>
-            {items.map(
-              (item, i) => item.count > 0 && <CartItem item={item} key={i} />
-            )}
+            {items.map((item) => (
+              <CartItem item={item} key={item.id} />
+            ))}
           </div>
           <div className={styles.bottom}>
             <div className={styles.details}>
