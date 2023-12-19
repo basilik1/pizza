@@ -117,7 +117,6 @@
   height: 32px;
   min-width: 32px;
   padding: 0;
-
   text-align: center;
   cursor: pointer;
   transition:
@@ -168,26 +167,24 @@
   height: 32px;
   min-width: 32px;
   padding: 0;
-
   text-align: center;
-  cursor: pointer;
   transition:
     background-color $duration ease-in-out,
     border-color $duration ease-in-out;
   border: 1px solid transparent;
   @include noselect();
   background-color: darken($color: $gray-line, $amount: 5);
-  border-color: $orange;
+  border-color: $orange_disabled;
   border-radius: 30px;
   border-width: 2px;
 
   span {
-    color: $orange;
+    color: $orange_disabled;
   }
 
   svg {
     path {
-      fill: $orange;
+      fill: $orange_disabled;
     }
   }
 }
@@ -208,7 +205,6 @@
     border-radius: 30px;
     text-align: center;
     cursor: pointer;
-
     border: 1px solid #ddd;
 
     svg {
@@ -291,7 +287,6 @@
   border-color: #ddd;
   span {
     color: darken($color: $gray-line, $amount: 20);
-    font-weight: 500;
     font-weight: 600;
   }
   &:hover {

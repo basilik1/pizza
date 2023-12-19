@@ -1,12 +1,11 @@
 import { FC, useEffect, useRef } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import qs from 'qs';
 import { useNavigate } from 'react-router-dom';
 
 import { PiSmileyXEyes } from 'react-icons/pi';
 
 import Sorting from '../components/Sorting';
-import { listTypeSort } from '../components/Sorting/ListTypeSort';
 import BlockPizza from '../components/BlockPizza';
 import Skeleton from '../components/BlockPizza/Skeleton';
 import Categories from '../components/Categories';
@@ -16,14 +15,17 @@ import Pagination from '../components/Pagination/';
 import {
   setActiveCategoryId,
   setCurrentPage,
-  setFilters,
   selectFilter,
+  setFilters,
 } from '../redux/slices/filterSlice';
 import { fetchPizzas, selectPizzaData } from '../redux/slices/pizzaSlice';
 import { selectSearchValue } from '../redux/slices/searchSlice';
+import { useAppDispatch } from '../redux/store';
+import { listTypeSort } from '../components/Sorting/ListTypeSort';
+import { IStateFilterSlice } from '../redux/interface/interface';
 
 const Home: FC = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const isSearch = useRef(false);
   const isMounted = useRef(false);
@@ -51,7 +53,7 @@ const Home: FC = () => {
         sortBy,
         category,
         search,
-        currentPage,
+        currentPage: String(currentPage),
       })
     );
     window.scrollTo(0, 0);
@@ -72,14 +74,17 @@ const Home: FC = () => {
 
   useEffect(() => {
     if (window.location.search) {
-      const params = qs.parse(window.location.search.substring(1));
+      const params = qs.parse(
+        window.location.search.substring(1)
+      ) as unknown as IStateFilterSlice;
       const sort = listTypeSort.find((obj) => {
-        obj.sortProperty === params.sortProperty;
+        obj.sortProperty === params.sortType.sortProperty;
       });
       dispatch(
         setFilters({
-          ...params,
-          sort,
+          activeCategoryId: Number(params.activeCategoryId),
+          currentPage: Number(params.currentPage),
+          sortType: sort ? sort : listTypeSort[0],
         })
       );
       isSearch.current = true;

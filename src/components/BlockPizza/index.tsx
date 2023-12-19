@@ -3,8 +3,8 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import ModalPizza from '../Modal';
 import { addItem, selectPizzaCount } from '../../redux/slices/cartSlice';
-import { IBlockPizzaProps } from '../interface/interface';
-
+import { IBlockPizzaProps, TBlockPizzaItem } from '../interface/interface';
+import styles from './BlockItem.module.scss';
 const typeNamesBoard: string[] = ['Тонкое', 'Традиционное'];
 
 const BlockPizza: FC<IBlockPizzaProps> = ({ props }) => {
@@ -21,7 +21,7 @@ const BlockPizza: FC<IBlockPizzaProps> = ({ props }) => {
   const addedPizzaCount = pizzaCount ? pizzaCount.count : 0;
 
   const onClickAdd = () => {
-    const item = {
+    const item: TBlockPizzaItem = {
       id: idCart,
       title,
       price: price[activeSize],
@@ -29,6 +29,7 @@ const BlockPizza: FC<IBlockPizzaProps> = ({ props }) => {
       sizes: sizes[activeSize],
       typeNamesBoard: typeNamesBoard[activeBoard],
       weight: weight[activeSize],
+      count: 0,
     };
     dispatch(addItem(item));
   };
@@ -48,7 +49,9 @@ const BlockPizza: FC<IBlockPizzaProps> = ({ props }) => {
               <li
                 key={index}
                 onClick={() => setActiveBoard(index)}
-                className={activeBoard === index ? 'active' : ''}
+                className={
+                  activeBoard === index ? 'active' : `${styles.item_hover}`
+                }
               >
                 {typeNamesBoard[type]}
               </li>
@@ -58,7 +61,9 @@ const BlockPizza: FC<IBlockPizzaProps> = ({ props }) => {
             {sizes.map((size, index) => (
               <li
                 onClick={() => setActiveSize(index)}
-                className={activeSize === index ? 'active' : ''}
+                className={
+                  activeSize === index ? 'active' : `${styles.item_hover}`
+                }
                 key={index}
               >
                 {size} см

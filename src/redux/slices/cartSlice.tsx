@@ -1,11 +1,13 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { IStateCartSlice, TItems } from '../interface/interface';
+import { RootState } from '../store';
 
-const initialState = {
+const initialState: IStateCartSlice = {
   items: [],
   totalPrice: 0,
 };
 
-const changeTotalPrice = (state) => {
+const changeTotalPrice = (state: IStateCartSlice) => {
   state.totalPrice = state.items.reduce((sum, obj) => {
     return obj.price * obj.count + sum;
   }, 0);
@@ -15,7 +17,7 @@ const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    addItem: (state, action) => {
+    addItem: (state, action: PayloadAction<TItems>) => {
       const findItem = state.items.find((obj) => obj.id === action.payload.id);
       if (findItem) {
         findItem.count++;
@@ -24,11 +26,8 @@ const cartSlice = createSlice({
       }
       changeTotalPrice(state);
     },
-    removeItem: (state, action) => {
-      const findItem = (state.items = state.items.filter(
-        (obj) => obj.id !== action.payload.id
-      ));
-      findItem.count = 0;
+    removeItem: (state, action: PayloadAction<TItems>) => {
+      state.items = state.items.filter((obj) => obj.id !== action.payload.id);
 
       changeTotalPrice(state);
     },
@@ -36,8 +35,7 @@ const cartSlice = createSlice({
       state.items = [];
       state.totalPrice = 0;
     },
-
-    backPizzaToCart: (state, action) => {
+    backPizzaToCart: (state, action: PayloadAction<TItems>) => {
       const findItem = state.items.find((obj) => obj.id === action.payload.id);
       if (findItem) {
         findItem.count--;
@@ -48,8 +46,8 @@ const cartSlice = createSlice({
   },
 });
 
-export const selectCart = (state) => state.cartSlice;
-export const selectPizzaCount = (idCart) => (state) =>
+export const selectCart = (state: RootState) => state.cartSlice;
+export const selectPizzaCount = (idCart: number) => (state: RootState) =>
   state.cartSlice.items.find((obj) => obj.id === idCart);
 
 export const { addItem, removeItem, clearItems, backPizzaToCart } =

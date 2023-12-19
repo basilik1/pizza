@@ -1,27 +1,34 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { RootState } from '../store';
+import {
+  IStatePizzaSlice,
+  Status,
+  TData,
+  TParamsPizzaSlice,
+} from '../interface/interface';
 
-export const fetchPizzas = createAsyncThunk(
+export const fetchPizzas = createAsyncThunk<TData[], TParamsPizzaSlice>(
   'pizza/fetchPizzasStatus',
   async (params) => {
     const { order, sortBy, category, search, currentPage } = params;
-    const res = await axios.get(
+    const { data } = await axios.get<TData[]>(
       `https://656227ecdcd355c083249d4f.mockapi.io/api/v1/pizza_collections?page=${currentPage}&limit=8&${category}&sortBy=${sortBy}&order=${order}${search}`
     );
-    return res.data;
+    return data;
   }
 );
 
-const initialState = {
+const initialState: IStatePizzaSlice = {
   data: [],
-  status: 'loading',
+  status: Status.LOADING,
 };
 
 const pizzaSlice = createSlice({
   name: 'pizza',
   initialState,
   reducers: {
-    setData: (state, action) => {
+    setData: (state, action: PayloadAction<TData[]>) => {
       state.data = action.payload;
     },
   },
@@ -29,20 +36,23 @@ const pizzaSlice = createSlice({
     builder
       .addCase(fetchPizzas.pending, (state) => {
         state.data = [];
-        state.status = 'loading';
+        state.status = Status.LOADING;
       })
-      .addCase(fetchPizzas.fulfilled, (state, action) => {
-        state.data = action.payload;
-        state.status = 'success';
-      })
+      .addCase(
+        fetchPizzas.fulfilled,
+        (state, action: PayloadAction<TData[]>) => {
+          state.data = action.payload;
+          state.status = Status.SUCCESS;
+        }
+      )
       .addCase(fetchPizzas.rejected, (state) => {
         state.data = [];
-        state.status = 'error';
+        state.status = Status.ERROR;
       });
   },
 });
 
-export const selectPizzaData = (state) => state.pizzaSlice;
+export const selectPizzaData = (state: RootState) => state.pizzaSlice;
 
 export const { setData } = pizzaSlice.actions;
 

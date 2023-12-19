@@ -25,7 +25,7 @@ const ModalPizza: FC<IModalPizzaProps> = ({
               <IoMdClose size="40" fill="#fff" />
             </i>
             <div className={styles.modal}>
-              <div className={styles.block} onClick={() => setOpen(!open)}>
+              <div className={styles.block} onClick={() => setOpen(false)}>
                 <div className={styles.image}>
                   <img src={imageUrl[activeBoard]} alt={title} />
                 </div>

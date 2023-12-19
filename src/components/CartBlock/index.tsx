@@ -30,7 +30,7 @@ const CartBlock: FC = () => {
               className={styles.clear}
               onClick={() => {
                 if (items.length > 0 && window.confirm('Очистить корзину?')) {
-                  dispatch(clearItems(items));
+                  dispatch(clearItems());
                 }
               }}
             >

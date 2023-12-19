@@ -41,6 +41,7 @@ const CartItem: FC<ICartItem> = ({ item }) => {
           </button>
         ) : (
           <button
+            disabled={count === 1}
             className={styles.buttonCount}
             onClick={() => {
               dispatch(backPizzaToCart(item));
