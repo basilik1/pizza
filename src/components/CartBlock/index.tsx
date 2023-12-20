@@ -1,20 +1,20 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+
 import { RiShoppingBasket2Line } from 'react-icons/ri';
+import styles from './CartBlock.module.scss';
 
 import { clearItems, selectCart } from '../../redux/slices/cartSlice';
+import { calcTotalCountPizza } from '../../utils/calcTotalCountPizza';
 
 import CartItem from './CartItem';
 import CartEmpty from '../CartEmpty';
-import styles from './CartBlock.module.scss';
 
 const CartBlock: FC = () => {
   const { items, totalPrice } = useSelector(selectCart);
 
-  const countAllPizza = items.reduce((acc: number, obj: { count: number }) => {
-    return acc + obj.count;
-  }, 0);
+  const countAllPizza = calcTotalCountPizza(items);
 
   const dispatch = useDispatch();
 

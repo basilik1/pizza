@@ -1,7 +1,7 @@
-import { FC, useEffect, useRef } from 'react';
+import { FC, useCallback, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import qs from 'qs';
-import { useNavigate } from 'react-router-dom';
 
 import { PiSmileyXEyes } from 'react-icons/pi';
 
@@ -11,6 +11,7 @@ import Skeleton from '../components/BlockPizza/Skeleton';
 import Categories from '../components/Categories';
 import Search from '../components/Search/';
 import Pagination from '../components/Pagination/';
+import { listTypeSort } from '../components/Sorting/ListTypeSort';
 
 import {
   setActiveCategoryId,
@@ -21,7 +22,6 @@ import {
 import { fetchPizzas, selectPizzaData } from '../redux/slices/pizzaSlice';
 import { selectSearchValue } from '../redux/slices/searchSlice';
 import { useAppDispatch } from '../redux/store';
-import { listTypeSort } from '../components/Sorting/ListTypeSort';
 import { IStateFilterSlice } from '../redux/interface/interface';
 
 const Home: FC = () => {
@@ -34,9 +34,10 @@ const Home: FC = () => {
   const { searchValue } = useSelector(selectSearchValue);
   const { activeCategoryId, sortType, currentPage } = useSelector(selectFilter);
 
-  const onChangeActiveCategoryId = (id: number) => {
+  const onChangeActiveCategoryId = useCallback((id: number) => {
     dispatch(setActiveCategoryId(id));
-  };
+  }, []);
+
   const onChangePage = (num: number) => {
     dispatch(setCurrentPage(num));
   };

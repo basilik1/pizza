@@ -1,8 +1,9 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { CategoriesList } from './CategoriesList';
 import { ICategoriesProps } from '../interface/interface';
+// import styles from './Categories.module.scss'
 
-const Categories: FC<ICategoriesProps> = ({ value, onClickCategory }) => {
+const Categories: FC<ICategoriesProps> = memo(({ value, onClickCategory }) => {
   return (
     <div className="categories">
       <ul>
@@ -18,6 +19,6 @@ const Categories: FC<ICategoriesProps> = ({ value, onClickCategory }) => {
       </ul>
     </div>
   );
-};
+});
 
 export default Categories;

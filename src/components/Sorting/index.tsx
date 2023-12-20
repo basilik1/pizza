@@ -1,15 +1,14 @@
-import { FC, useEffect, useRef, useState } from 'react';
+import { FC, memo, useEffect, useRef, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setSortType, selectFilter } from '../../redux/slices/filterSlice';
 import { listTypeSort } from './ListTypeSort';
 import { TListSort } from '../interface/interface';
 
-const Sorting: FC = () => {
+const Sorting: FC = memo(() => {
   const [isOpenPopup, setIsOpenPopup] = useState<boolean>(false);
-
-  const sortRef = useRef<HTMLDivElement>(null);
   const dispatch = useDispatch();
   const { sortType } = useSelector(selectFilter);
+  const sortRef = useRef<HTMLDivElement>(null);
 
   const onHandleClickActiveItem = (obj: TListSort) => {
     dispatch(setSortType(obj));
@@ -66,6 +65,6 @@ const Sorting: FC = () => {
       )}
     </div>
   );
-};
+});
 
 export default Sorting;
