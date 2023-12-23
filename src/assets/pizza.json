@@ -1,0 +1,761 @@
+[
+  {
+    "id": 0,
+    "imageUrl": [
+      "https://dodopizza-a.akamaihd.net/static/Img/Products/05eee37cf0074207992acad0b5ebb3fb_584x584.webp",
+      "https://dodopizza-a.akamaihd.net/static/Img/Products/d9c609f1422247f2b87b6293eb461ff0_292x292.webp"
+    ],
+    "title": "Сырная",
+    "types": [
+      0,
+      1
+    ],
+    "sizes": [
+      26,
+      30,
+      40
+    ],
+    "price": [
+      289,
+      479,
+      609
+    ],
+    "category": 2,
+    "rating": 4,
+    "weight": [
+      310,
+      450,
+      630
+    ],
+    "nutritional": [
+      {
+        "property": "Энерг. ценность",
+        "value": 290
+      },
+      {
+        "property": "Жиры",
+        "value": 15.8
+      },
+      {
+        "property": "Углеводы",
+        "value": 32.7
+      },
+      {
+        "property": "Белки",
+        "value": 16
+      }
+    ],
+    "composition": "Моцарелла, сыры чеддер и пармезан, фирменный соус альфредо"
+  },
+  {
+    "id": 1,
+    "imageUrl": [
+      "https://dodopizza-a.akamaihd.net/static/Img/Products/5cc95da360d9483dbaa9b550731b5016_584x584.webp",
+      "https://dodopizza-a.akamaihd.net/static/Img/Products/27c9bbd0af3a4d1d84a086d9c2f1656d_292x292.webp"
+    ],
+    "title": "Пепперони фреш",
+    "types": [
+      0,
+      1
+    ],
+    "sizes": [
+      26,
+      30,
+      40
+    ],
+    "price": [
+      289,
+      479,
+      609
+    ],
+    "category": 1,
+    "rating": 6,
+    "weight": [
+      310,
+      450,
+      630
+    ],
+    "nutritional": [
+      {
+        "property": "Энерг. ценность",
+        "value": 290
+      },
+      {
+        "property": "Жиры",
+        "value": 10.8
+      },
+      {
+        "property": "Углеводы",
+        "value": 36.7
+      },
+      {
+        "property": "Белки",
+        "value": 15
+      }
+    ],
+    "composition": "Пикантная пепперони, увеличенная порция моцареллы, томаты, фирменный томатный соус"
+  },
+  {
+    "id": 2,
+    "imageUrl": [
+      "https://dodopizza-a.akamaihd.net/static/Img/Products/ca07c827444f4b6d9eb3eedf36e256a2_584x584.webp",
+      "https://dodopizza-a.akamaihd.net/static/Img/Products/ddadb2bd7f2d40459acddbe2f51a2389_292x292.webp"
+    ],
+    "title": "Двойной цыпленок",
+    "types": [
+      0,
+      1
+    ],
+    "sizes": [
+      26,
+      30
+    ],
+    "price": [
+      369,
+      529
+    ],
+    "category": 3,
+    "rating": 4,
+    "weight": [
+      310,
+      450,
+      630
+    ],
+    "nutritional": [
+      {
+        "property": "Энерг. ценность",
+        "value": 225
+      },
+      {
+        "property": "Жиры",
+        "value": 18.2
+      },
+      {
+        "property": "Углеводы",
+        "value": 31.7
+      },
+      {
+        "property": "Белки",
+        "value": 15.6
+      }
+    ],
+    "composition": "Цыпленок, моцарелла, фирменный соус альфредо"
+  },
+  {
+    "id": 3,
+    "imageUrl": [
+      "https://dodopizza-a.akamaihd.net/static/Img/Products/f8bcc0d18f5a4817a720a159f0f8c37c_292x292.webp"
+    ],
+    "title": "Пицца Жюльен",
+    "types": [
+      1
+    ],
+    "sizes": [
+      30,
+      40
+    ],
+    "price": [
+      501,
+      695
+    ],
+    "category": 3,
+    "rating": 2,
+    "weight": [
+      310,
+      450,
+      630
+    ],
+    "nutritional": [
+      {
+        "property": "Энерг. ценность",
+        "value": 290
+      },
+      {
+        "property": "Жиры",
+        "value": 10.8
+      },
+      {
+        "property": "Углеводы",
+        "value": 36.7
+      },
+      {
+        "property": "Белки",
+        "value": 15
+      }
+    ],
+    "composition": "Цыпленок, шампиньоны, ароматный грибной соус, красный лук, чеснок, моцарелла, смесь сыров чеддер и пармезан, фирменный соус альфредо"
+  },
+  {
+    "id": 4,
+    "imageUrl": [
+      "https://dodopizza-a.akamaihd.net/static/Img/Products/7c0a41c7daa0405e8fce0ed652762fad_584x584.webp",
+      "https://dodopizza-a.akamaihd.net/static/Img/Products/18dbb12240b041a191c9dc73c9c1f4ef_292x292.webp"
+    ],
+    "title": "Мясная",
+    "types": [
+      0,
+      1
+    ],
+    "sizes": [
+      26,
+      30,
+      40
+    ],
+    "price": [
+      349,
+      596,
+      795
+    ],
+    "category": 1,
+    "rating": 8,
+    "weight": [
+      310,
+      450,
+      630
+    ],
+    "nutritional": [
+      {
+        "property": "Энерг. ценность",
+        "value": 250
+      },
+      {
+        "property": "Жиры",
+        "value": 12.3
+      },
+      {
+        "property": "Углеводы",
+        "value": 36.1
+      },
+      {
+        "property": "Белки",
+        "value": 16
+      }
+    ],
+    "composition": "Цыпленок, ветчина, пикантная пепперони, острая чоризо, моцарелла, фирменный томатный соус"
+  },
+  {
+    "id": 5,
+    "imageUrl": [
+      "https://dodopizza-a.akamaihd.net/static/Img/Products/69253f71abf543dd8ae6ef42b680ceb0_584x584.webp",
+      "https://dodopizza-a.akamaihd.net/static/Img/Products/42360a7dcb7640c998b723231586fe84_292x292.webp"
+    ],
+    "title": "Сырный цыпленок",
+    "types": [
+      0,
+      1
+    ],
+    "sizes": [
+      30,
+      40
+    ],
+    "price": [
+      346,
+      567,
+      753
+    ],
+    "category": 1,
+    "rating": 2,
+    "weight": [
+      310,
+      450,
+      630
+    ],
+    "nutritional": [
+      {
+        "property": "Энерг. ценность",
+        "value": 280
+      },
+      {
+        "property": "Жиры",
+        "value": 10.9
+      },
+      {
+        "property": "Углеводы",
+        "value": 32.7
+      },
+      {
+        "property": "Белки",
+        "value": 15
+      }
+    ],
+    "composition": "Цыпленок, моцарелла, сыры чеддер и пармезан, сырный соус, томаты, фирменный соус альфредо, чеснок"
+  },
+  {
+    "id": 6,
+    "imageUrl": [
+      "https://dodopizza-a.akamaihd.net/static/Img/Products/92178493ced84b889dad0aca6d7c3bdf_584x584.webp",
+      "https://dodopizza-a.akamaihd.net/static/Img/Products/fb9cc5b8ff2e47bdbcbdcb5930cddf06_584x584.webp"
+    ],
+    "title": "Пепперони",
+    "types": [
+      0,
+      1
+    ],
+    "sizes": [
+      26,
+      30,
+      40
+    ],
+    "price": [
+      281,
+      501,
+      695
+    ],
+    "category": 4,
+    "rating": 9,
+    "weight": [
+      310,
+      450,
+      630
+    ],
+    "nutritional": [
+      {
+        "property": "Энерг. ценность",
+        "value": 290
+      },
+      {
+        "property": "Жиры",
+        "value": 12.8
+      },
+      {
+        "property": "Углеводы",
+        "value": 36.8
+      },
+      {
+        "property": "Белки",
+        "value": 25
+      }
+    ],
+    "composition": "Пикантная пепперони, увеличенная порция моцареллы, фирменный томатный соус"
+  },
+  {
+    "id": 7,
+    "imageUrl": [
+      "https://dodopizza-a.akamaihd.net/static/Img/Products/e40a6a690be84b798aeb44b186920ed4_584x584.webp",
+      "https://dodopizza-a.akamaihd.net/static/Img/Products/d51fa179760041f0831e63fa21c39402_584x584.webp"
+    ],
+    "title": "Четыре сезона",
+    "types": [
+      0,
+      1
+    ],
+    "sizes": [
+      26,
+      30,
+      40
+    ],
+    "price": [
+      312,
+      548,
+      749
+    ],
+    "category": 3,
+    "rating": 10,
+    "weight": [
+      310,
+      450,
+      630
+    ],
+    "nutritional": [
+      {
+        "property": "Энерг. ценность",
+        "value": 268
+      },
+      {
+        "property": "Жиры",
+        "value": 9.8
+      },
+      {
+        "property": "Углеводы",
+        "value": 42.1
+      },
+      {
+        "property": "Белки",
+        "value": 16
+      }
+    ],
+    "composition": "Увеличенная порция моцареллы, ветчина, пикантная пепперони, кубики брынзы, томаты, шампиньоны, итальянские травы, фирменный томатный соус"
+  },
+  {
+    "id": 8,
+    "imageUrl": [
+      "https://dodopizza-a.akamaihd.net/static/Img/Products/f1380af5e4a34b22b8b692db69ec52c4_584x584.webp",
+      "https://dodopizza-a.akamaihd.net/static/Img/Products/cea570842b754c52b786c231c65bd2e2_292x292.webp"
+    ],
+    "title": "Ветчина и сыр",
+    "types": [
+      0,
+      1
+    ],
+    "sizes": [
+      26,
+      30,
+      40
+    ],
+    "price": [
+      281,
+      501,
+      695
+    ],
+    "category": 1,
+    "rating": 10,
+    "weight": [
+      310,
+      450,
+      630
+    ],
+    "nutritional": [
+      {
+        "property": "Энерг. ценность",
+        "value": 325
+      },
+      {
+        "property": "Жиры",
+        "value": 12.8
+      },
+      {
+        "property": "Углеводы",
+        "value": 39.7
+      },
+      {
+        "property": "Белки",
+        "value": 8
+      }
+    ],
+    "composition": "Ветчина, моцарелла, фирменный соус альфредо"
+  },
+  {
+    "id": 9,
+    "imageUrl": [
+      "https://dodopizza-a.akamaihd.net/static/Img/Products/48a0bb0e8aea47adb730cd9729f2b014_584x584.webp",
+      "https://dodopizza-a.akamaihd.net/static/Img/Products/d6c9f93ea37649ac923e9586c034a5a0_292x292.webp"
+    ],
+    "title": "Овощи и грибы",
+    "types": [
+      0,
+      1
+    ],
+    "sizes": [
+      26,
+      30,
+      40
+    ],
+    "price": [
+      265,
+      495,
+      648
+    ],
+    "category": 2,
+    "rating": 7,
+    "weight": [
+      310,
+      450,
+      630
+    ],
+    "nutritional": [
+      {
+        "property": "Энерг. ценность",
+        "value": 290
+      },
+      {
+        "property": "Жиры",
+        "value": 10.8
+      },
+      {
+        "property": "Углеводы",
+        "value": 36.7
+      },
+      {
+        "property": "Белки",
+        "value": 15
+      }
+    ],
+    "composition": "Шампиньоны, томаты, сладкий перец, красный лук, кубики брынзы, моцарелла, фирменный томатный соус, итальянские травы"
+  },
+  {
+    "id": 10,
+    "imageUrl": [
+      "https://dodopizza-a.akamaihd.net/static/Img/Products/9471866349134df996256c6f8acc5d5d_584x584.webp",
+      "https://dodopizza-a.akamaihd.net/static/Img/Products/50555f951a6d4fd4ac0088c099eb3769_292x292.webp"
+    ],
+    "title": "Четыре сыра",
+    "types": [
+      0,
+      1
+    ],
+    "sizes": [
+      26,
+      30,
+      40
+    ],
+    "price": [
+      270,
+      480,
+      635
+    ],
+    "category": 2,
+    "rating": 7,
+    "weight": [
+      310,
+      450,
+      630
+    ],
+    "nutritional": [
+      {
+        "property": "Энерг. ценность",
+        "value": 290
+      },
+      {
+        "property": "Жиры",
+        "value": 10.8
+      },
+      {
+        "property": "Углеводы",
+        "value": 36.7
+      },
+      {
+        "property": "Белки",
+        "value": 15
+      }
+    ],
+    "composition": "Сыр блю чиз, сыры чеддер и пармезан, моцарелла, фирменный соус альфредо"
+  },
+  {
+    "id": 11,
+    "imageUrl": [
+      "https://dodopizza-a.akamaihd.net/static/Img/Products/b522c71f1fb94946a01dd6eacad40338_584x584.webp"
+    ],
+    "title": "Маргарита",
+    "types": [
+      0
+    ],
+    "sizes": [
+      26,
+      30,
+      40
+    ],
+    "price": [
+      250,
+      460,
+      620
+    ],
+    "category": 2,
+    "rating": 7,
+    "weight": [
+      310,
+      450,
+      630
+    ],
+    "nutritional": [
+      {
+        "property": "Энерг. ценность",
+        "value": 277
+      },
+      {
+        "property": "Жиры",
+        "value": 16.1
+      },
+      {
+        "property": "Углеводы",
+        "value": 30.9
+      },
+      {
+        "property": "Белки",
+        "value": 16.5
+      }
+    ],
+    "composition": "Увеличенная порция моцареллы, томаты, итальянские травы, фирменный томатный соус"
+  },
+  {
+    "id": 12,
+    "imageUrl": [
+      "https://dodopizza-a.akamaihd.net/static/Img/Products/8411159aa0764daca235e7eb6abc7870_584x584.webp",
+      "https://dodopizza-a.akamaihd.net/static/Img/Products/f477cfced84b4f4c94e0d3533b4abdb3_584x584.webp"
+    ],
+    "title": "Бургер-пицца",
+    "types": [
+      0,
+      1
+    ],
+    "sizes": [
+      26,
+      30,
+      40
+    ],
+    "price": [
+      409,
+      606,
+      763
+    ],
+    "category": 1,
+    "rating": 7,
+    "weight": [
+      310,
+      450,
+      630
+    ],
+    "nutritional": [
+      {
+        "property": "Энерг. ценность",
+        "value": 284
+      },
+      {
+        "property": "Жиры",
+        "value": 14.8
+      },
+      {
+        "property": "Углеводы",
+        "value": 32.3
+      },
+      {
+        "property": "Белки",
+        "value": 19.3
+      }
+    ],
+    "composition": "Ветчина, маринованные огурчики, томаты, красный лук, чеснок, соус бургер, моцарелла, фирменный томатный соус"
+  },
+  {
+    "id": 13,
+    "imageUrl": [
+      "https://dodopizza-a.akamaihd.net/static/Img/Products/358030fbfa134df0b62cab8467c872ea_584x584.webp",
+      "https://dodopizza-a.akamaihd.net/static/Img/Products/8a5b24c5113f478a86915f77f640ae93_584x584.webp"
+    ],
+    "title": "Гавайская",
+    "types": [
+      0,
+      1
+    ],
+    "sizes": [
+      26,
+      30,
+      40
+    ],
+    "price": [
+      419,
+      601,
+      785
+    ],
+    "category": 1,
+    "rating": 9,
+    "weight": [
+      310,
+      450,
+      630
+    ],
+    "nutritional": [
+      {
+        "property": "Энерг. ценность",
+        "value": 290
+      },
+      {
+        "property": "Жиры",
+        "value": 10.8
+      },
+      {
+        "property": "Углеводы",
+        "value": 36.7
+      },
+      {
+        "property": "Белки",
+        "value": 15
+      }
+    ],
+    "composition": "Цыпленок, ананасы, моцарелла, фирменный соус альфредо"
+  },
+  {
+    "id": 14,
+    "imageUrl": [
+      "https://dodopizza-a.akamaihd.net/static/Img/Products/1add896e96c84f878bd23e372cb532cf_584x584.webp",
+      "https://dodopizza-a.akamaihd.net/static/Img/Products/13cd5de5476e4cc5997943413c3795a3_584x584.webp"
+    ],
+    "title": "Диабло",
+    "types": [
+      0,
+      1
+    ],
+    "sizes": [
+      26,
+      30,
+      40
+    ],
+    "price": [
+      480,
+      637,
+      890
+    ],
+    "category": 4,
+    "rating": 8,
+    "weight": [
+      310,
+      450,
+      630
+    ],
+    "nutritional": [
+      {
+        "property": "Энерг. ценность",
+        "value": 290
+      },
+      {
+        "property": "Жиры",
+        "value": 10.8
+      },
+      {
+        "property": "Углеводы",
+        "value": 36.7
+      },
+      {
+        "property": "Белки",
+        "value": 15
+      }
+    ],
+    "composition": "Острая чоризо, острый перец халапеньо, соус барбекю, митболы из говядины, томаты, сладкий перец, красный лук, моцарелла, фирменный томатный соус"
+  },
+  {
+    "id": 15,
+    "imageUrl": [
+      "https://dodopizza-a.akamaihd.net/static/Img/Products/a580002d22234da59c56a3e898f7b285_584x584.webp",
+      "https://dodopizza-a.akamaihd.net/static/Img/Products/f9720b81bc7e4980b632f1418d898d75_584x584.webp"
+    ],
+    "title": "Чоризо фреш",
+    "types": [
+      0,
+      1
+    ],
+    "sizes": [
+      26,
+      30,
+      40
+    ],
+    "price": [
+      291,
+      445,
+      702
+    ],
+    "category": 4,
+    "rating": 5,
+    "weight": [
+      310,
+      450,
+      630
+    ],
+    "nutritional": [
+      {
+        "property": "Энерг. ценность",
+        "value": 290
+      },
+      {
+        "property": "Жиры",
+        "value": 10.8
+      },
+      {
+        "property": "Углеводы",
+        "value": 36.7
+      },
+      {
+        "property": "Белки",
+        "value": 15
+      }
+    ],
+    "composition": "Острая чоризо, сладкий перец, моцарелла, фирменный томатный соус"
+  }
+]
