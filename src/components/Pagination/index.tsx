@@ -3,7 +3,10 @@ import ReactPaginate from 'react-paginate';
 import styles from './Pagination.module.scss';
 import { IPaginationProps } from '../interface/interface';
 
-const Pagination: FC<IPaginationProps> = ({ currentPage, onChangePage }) => {
+export const Pagination: FC<IPaginationProps> = ({
+  currentPage,
+  onChangePage,
+}) => {
   return (
     <ReactPaginate
       className={styles.root}
@@ -18,5 +21,3 @@ const Pagination: FC<IPaginationProps> = ({ currentPage, onChangePage }) => {
     />
   );
 };
-
-export default Pagination;

@@ -20,12 +20,12 @@ const CartItem: FC<ICartItem> = ({ item }) => {
       <div className={styles.info}>
         <h3>{title}</h3>
         <p>
-          {typeNamesBoard} тесто, {sizes} см. {weight} гр.
+          {typeNamesBoard} тесто, {sizes}&nbsp;см. {weight}&nbsp;гр.
         </p>
       </div>
       <div className={styles.count}>
         {count === 1 ? (
-          <button className={styles.buttonCountOne}>
+          <button className={`${styles.button_one} ${styles.buttonCount}`}>
             <svg
               width="10"
               height="10"
@@ -61,7 +61,6 @@ const CartItem: FC<ICartItem> = ({ item }) => {
             </svg>
           </button>
         )}
-
         <b>{count}</b>
         <button
           className={styles.buttonCount}
@@ -88,7 +87,7 @@ const CartItem: FC<ICartItem> = ({ item }) => {
         </button>
       </div>
       <div className={styles.price}>
-        <b>{price * count} ₽</b>
+        <b>{price * count}&nbsp;₽</b>
       </div>
       <div className={styles.remove}>
         <button

@@ -49,7 +49,7 @@ const ModalPizza: FC<IModalPizzaProps> = ({
                     <span>
                       {sizes[activeSize]}см, {typeNamesBoard[activeBoard]}{' '}
                       тесто,&nbsp;
-                      {weight[activeSize]} г
+                      {weight[activeSize]}&nbsp;г
                     </span>
                   </div>
                   <div className={styles.composition}>

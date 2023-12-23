@@ -11,7 +11,7 @@ import debounce from 'lodash.debounce';
 import { IoMdClose } from 'react-icons/io';
 import styles from './Search.module.scss';
 
-const Search: FC = () => {
+export const Search: FC = () => {
   const { interimValue } = useSelector(selectSearchValue);
   const dispatch = useDispatch();
 
@@ -52,5 +52,3 @@ const Search: FC = () => {
     </>
   );
 };
-
-export default Search;

@@ -3,10 +3,22 @@
 
 .categories {
   @media (max-width: 1120px) {
-
-      margin-top: 30px;
-    
+    margin-top: 30px;
     flex-direction: column-reverse;
+  }
+  @media (max-width: 800px) {
+    overflow: auto;
+    width: 100%;
+    ul {
+      width: 485px;
+    }
+  }
+  @media (max-width: 760px) {
+    ul {
+      li {
+        padding: 8px 20px;
+      }
+    }
   }
   ul {
     display: flex;
@@ -28,7 +40,6 @@
       &:active {
         background-color: darken(#f9f9f9, 5%);
       }
-
       &.active {
         background-color: #282828;
         color: #fff;

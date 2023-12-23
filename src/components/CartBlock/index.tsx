@@ -47,15 +47,18 @@ const CartBlock: FC = () => {
           <div className={styles.bottom}>
             <div className={styles.details}>
               <span>
-                Всего пицц: <b>{countAllPizza} шт.</b>
+                Всего&nbsp;пицц <b>{countAllPizza}&nbsp;шт.</b>
               </span>
               <span>
-                Сумма заказа: <b>{totalPrice} ₽</b>
+                Сумма&nbsp;заказа: <b>{totalPrice}&nbsp;₽</b>
               </span>
             </div>
 
             <div className={styles.cartBottom}>
-              <Link to="/" className={styles.buttonBack}>
+              <Link
+                to="/"
+                className={`${styles.buttonNav} ${styles.buttonBack}`}
+              >
                 <svg
                   width="8"
                   height="14"
@@ -73,7 +76,10 @@ const CartBlock: FC = () => {
                 </svg>
                 <span>Вернуться назад</span>
               </Link>
-              <Link to="*" className={styles.buttonPay}>
+              <Link
+                to="*"
+                className={`${styles.buttonNav} ${styles.buttonPay}`}
+              >
                 <span>Оплатить сейчас</span>
               </Link>
             </div>

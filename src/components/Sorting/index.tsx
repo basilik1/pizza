@@ -3,8 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setSortType, selectFilter } from '../../redux/slices/filterSlice';
 import { listTypeSort } from './ListTypeSort';
 import { TListSort } from '../interface/interface';
+import styles from './Sorting.module.scss';
 
-const Sorting: FC = memo(() => {
+export const Sorting: FC = memo(() => {
   const [isOpenPopup, setIsOpenPopup] = useState<boolean>(false);
   const dispatch = useDispatch();
   const { sortType } = useSelector(selectFilter);
@@ -28,10 +29,13 @@ const Sorting: FC = memo(() => {
   }, []);
 
   return (
-    <div className="sort" ref={sortRef}>
-      <div className="sort__label" onClick={() => setIsOpenPopup(!isOpenPopup)}>
+    <div className={styles.sort} ref={sortRef}>
+      <div
+        className={styles.label}
+        onClick={() => setIsOpenPopup(!isOpenPopup)}
+      >
         <svg
-          className={isOpenPopup ? 'active' : ''}
+          className={isOpenPopup ? `${styles.active}` : ''}
           width="10"
           height="6"
           viewBox="0 0 10 6"
@@ -47,13 +51,15 @@ const Sorting: FC = memo(() => {
         <span>{sortType.name}</span>
       </div>
       {isOpenPopup && (
-        <div className="sort__popup">
+        <div className={styles.popup}>
           <ul>
             {listTypeSort.map((obj, i) => (
               <li
                 onClick={() => onHandleClickActiveItem(obj)}
                 className={
-                  sortType.sortProperty === obj.sortProperty ? 'active' : ''
+                  sortType.sortProperty === obj.sortProperty
+                    ? `${styles.active}`
+                    : ''
                 }
                 key={i}
               >
@@ -66,5 +72,3 @@ const Sorting: FC = memo(() => {
     </div>
   );
 });
-
-export default Sorting;

@@ -11,13 +11,13 @@ const PopupNatural: FC<TNutritional> = ({ nutritional }) => {
           <i className={styles.triangle}>
             <GoTriangleUp />
           </i>
-          <h3>Пищевая ценность на 100 г</h3>
-
+          <h3>Пищевая ценность на 100&nbsp;г</h3>
           {nutritional.map((obj, i) => (
             <div className={styles.list} key={i}>
               <div>{obj.property}</div>
               <div>
-                {obj.value} {obj.property === 'Энерг. ценность' ? 'ккал' : 'г'}
+                {obj.value}&nbsp;
+                {obj.property === 'Энерг. ценность' ? 'ккал' : 'г'}
               </div>
             </div>
           ))}

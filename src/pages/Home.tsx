@@ -5,12 +5,14 @@ import qs from 'qs';
 
 import { PiSmileyXEyes } from 'react-icons/pi';
 
-import Sorting from '../components/Sorting';
-import BlockPizza from '../components/BlockPizza';
-import Skeleton from '../components/BlockPizza/Skeleton';
-import Categories from '../components/Categories';
-import Search from '../components/Search/';
-import Pagination from '../components/Pagination/';
+import {
+  Sorting,
+  BlockPizza,
+  Skeleton,
+  Categories,
+  Search,
+  Pagination,
+} from '../components';
 import { listTypeSort } from '../components/Sorting/ListTypeSort';
 
 import {

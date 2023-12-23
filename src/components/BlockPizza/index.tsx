@@ -7,7 +7,7 @@ import { IBlockPizzaProps, TBlockPizzaItem } from '../interface/interface';
 import styles from './BlockItem.module.scss';
 const typeNamesBoard: string[] = ['Тонкое', 'Традиционное'];
 
-const BlockPizza: FC<IBlockPizzaProps> = ({ props }) => {
+export const BlockPizza: FC<IBlockPizzaProps> = ({ props }) => {
   const { id, imageUrl, title, price, sizes, types, weight } = props;
 
   const dispatch = useDispatch();
@@ -34,23 +34,25 @@ const BlockPizza: FC<IBlockPizzaProps> = ({ props }) => {
     dispatch(addItem(item));
   };
   return (
-    <div className="pizza-block-wrapper">
-      <div className="pizza-block">
+    <div className={styles.wrapper}>
+      <div className={styles.pizzaBlock}>
         <img
           onClick={() => setModalOpen(true)}
-          className="pizza-block__image"
+          className={styles.image}
           src={imageUrl[activeBoard]}
           alt="Pizza"
         />
-        <h4 className="pizza-block__title">{title}</h4>
-        <div className="pizza-block__selector">
+        <h4 className={styles.title}>{title}</h4>
+        <div className={styles.selector}>
           <ul>
             {types.map((type, index) => (
               <li
                 key={index}
                 onClick={() => setActiveBoard(index)}
                 className={
-                  activeBoard === index ? 'active' : `${styles.item_hover}`
+                  activeBoard === index
+                    ? `${styles.active}`
+                    : `${styles.item_hover}`
                 }
               >
                 {typeNamesBoard[type]}
@@ -62,7 +64,9 @@ const BlockPizza: FC<IBlockPizzaProps> = ({ props }) => {
               <li
                 onClick={() => setActiveSize(index)}
                 className={
-                  activeSize === index ? 'active' : `${styles.item_hover}`
+                  activeSize === index
+                    ? `${styles.active}`
+                    : `${styles.item_hover}`
                 }
                 key={index}
               >
@@ -71,8 +75,8 @@ const BlockPizza: FC<IBlockPizzaProps> = ({ props }) => {
             ))}
           </ul>
         </div>
-        <div className="pizza-block__bottom">
-          <div className="pizza-block__price">от {price[activeSize]} ₽</div>
+        <div className={styles.bottom}>
+          <div className={styles.price}>от {price[activeSize]} ₽</div>
           <button
             className="button button--outline button--add"
             onClick={onClickAdd}
@@ -106,5 +110,3 @@ const BlockPizza: FC<IBlockPizzaProps> = ({ props }) => {
     </div>
   );
 };
-
-export default BlockPizza;
